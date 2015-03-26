@@ -43,7 +43,8 @@ mer.rowlabels=readChemotaxisCoordMap([root filesep 'example coordmap.csv']);    
 %% ------ View some of the data -----
 
 %% Plot trajectories for one well
-t{1,1}.plot
+wellNum=1;
+t{1,1}.plotplotXYTraj(wellNum);
 
 %% Look at CDFs of basal speed
 plotCDFs(mer.s0);
