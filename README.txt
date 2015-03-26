@@ -1,7 +1,8 @@
 HT_Chemotaxis_Toolbox
 
 This repository contains a set of MATLAB functions that can be used for analysis of high-throughput live-cell chemotaxis experiments.
-It relies on the Matlab's Image Processing Toolbox.
+It relies on the Matlab's Image Processing Toolbox and Parallel Computing Toolbox.
+It also makes use of approximate nearest neighbor finding functions created by Sunil Arya, Dahua Lin, and David Mount (these functions have been included, see also their copyright and license in the ann_1.1.2 zip file inside the ann_source folder).
 
 Usage:
 The chemotaxis_load_new_data_script provides a template script for loading and processing data.

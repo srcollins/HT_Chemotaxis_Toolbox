@@ -16,7 +16,7 @@ classdef HTChemotaxisExperiment
         gradCenterXY='imageCenter'; %Will be overwritten by defaultParametersForTracking
         
         %Tracking properties
-        maxDisp = 15;       %Will be overwritten by defaultParametersForTracking
+        maxDisp = nan;              %Will be overwritten by defaultParametersForTracking
         
         %Data
         imNumRows;
@@ -854,7 +854,7 @@ classdef HTChemotaxisExperiment
         function obj=findNuclei(obj)
             sourcePath=obj.folderPath;
             nucColor=obj.nucleusColor;
-            matlabpool(4);
+            parpool;
             obj.coord=cell(obj.numWells,obj.numFrames);
             for well=1:obj.numWells
                 tic
@@ -875,7 +875,7 @@ classdef HTChemotaxisExperiment
                 obj.time{well}=times(:);
                 toc
             end
-            matlabpool close;
+            delete(gcp('nocreate'));    % Close the parallel pool processing
             %Adjust the image size properties
             im=htChemotaxisReadImage(obj.folderPath,obj.wellName{1},obj.nucleusColor,1);
             [obj.imNumRows, obj.imNumCols]=size(im);
