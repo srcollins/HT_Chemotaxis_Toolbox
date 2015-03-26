@@ -43,10 +43,8 @@ mer.rowlabels=readChemotaxisCoordMap([root filesep 'example coordmap.csv']);    
 %% View some of the data
 
 % Look at CDFs of basal speed
-plotCDFs(mer.s0);
 
 % Scatter plot raw speed data for before and after attractant stimulation
 scatterChemotaxisData(mer,{'s0','s1'},1);
 
-% Scatter plot normalized angular bias for two different experiments
-scatterChemotaxisData(n,'a1',1,2);
+% 
