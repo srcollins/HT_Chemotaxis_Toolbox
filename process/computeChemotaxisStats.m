@@ -131,7 +131,7 @@ end
 for i=1:numExp
     startTimes=zeros(size(t{i,1}.wellName));
     for j=1:length(t{i,1}.wellName)
-        [~,datenums,~]=htChemotaxisGetSortedImageFilenames([t{i,1}.folderPath filesep t{i,1}.wellName{j}],t{i,1}.nucleusColor);
+        [junk,datenums]=htChemotaxisGetSortedImageFilenames([t{i,1}.folderPath filesep t{i,1}.wellName{j}],t{i,1}.nucleusColor);
         startTimes(j)=datenums(1);
         if j==1
             gapSize=datenums(2)-datenums(1);
