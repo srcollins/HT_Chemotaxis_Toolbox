@@ -1061,7 +1061,7 @@ classdef HTChemotaxisExperiment
                                     indval=1:(len-opt.framesPerStep);
                                     okInd(indval)=okInd(indval) & distbool(indval+mm-1);
                                 end
-                                %Exclude cases where the lines t.plcorresponding to a putative step span from one trajectory into the next
+                                %Exclude cases where the lines corresponding to a putative step span from one trajectory into the next
                                 okInd(1:(len-opt.framesPerStep))=okInd(1:(len-opt.framesPerStep)) & (trajMat(1:(len-opt.framesPerStep),trajIDCol)==trajMat((1+opt.framesPerStep):len,trajIDCol))';
                                 
                                 %Find a set of lines for step starting points that avoids duplicate use of any data points
