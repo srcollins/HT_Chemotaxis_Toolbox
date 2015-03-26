@@ -39,18 +39,21 @@ end
 frames0=17;                                                         % This will be the number of frames before the initial gradient generation
 mer=computeChemotaxisStats(t,frames0);                              % Note that many important parameters, including properties of the imaging system, are set in defaultParametersForComputingStatistics. Alternately, a number of them can be specified as inputs to this function.
 mer.rowlabels=readChemotaxisCoordMap([root filesep 'example coordmap.csv']);    % This will load labels for the wells from a coordinate map file
-[n,mer2]=rearrangeAndNormalizeTwoColorChemotaxisData(mer);
+[n,mer2]=normalizeTwoColorChemotaxisData(mer);
 %% ------ View some of the data -----
 
 %% Plot trajectories for one well
 wellNum=1;
-t{1,1}.plotplotXYTraj(wellNum);
+t{1,1}.plotXYTraj(wellNum);
 
 %% Look at CDFs of basal speed
 plotCDFs(mer.s0);
 
-%% Scatter plot raw speed data for before and after attractant stimulation
+%% Scatter plot raw speed data for before and after attractant stimulation for experiment 1
 scatterChemotaxisData(mer,{'s0','s1'},1);  % This plot will have clickable data points, which will show you the corresponding rowlabels
+
+%% Scatter plot normalized chemokinesis versus angular bias for experiment 1
+scatterChemotaxisData(n,{'sD','a1'},1);
 
 %% Scatter plot normalized angular bias for two different experiments
 scatterChemotaxisData(n,'a1',1,2);
