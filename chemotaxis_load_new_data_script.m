@@ -40,13 +40,16 @@ frames0=17;                                                         % This will 
 mer=computeChemotaxisStats(t,frames0);                              % Note that many important parameters, including properties of the imaging system, are set in defaultParametersForComputingStatistics. Alternately, a number of them can be specified as inputs to this function.
 mer.rowlabels=readChemotaxisCoordMap([root filesep 'example coordmap.csv']);    % This will load labels for the wells from a coordinate map file
 [n,mer2]=rearrangeAndNormalizeTwoColorChemotaxisData(mer);
-%% View some of the data
+%% ------ View some of the data -----
 
-% Look at CDFs of basal speed
+%% Plot trajectories for one well
+t{1,1}.plot
+
+%% Look at CDFs of basal speed
 plotCDFs(mer.s0);
 
-% Scatter plot raw speed data for before and after attractant stimulation
-scatterChemotaxisData(mer,{'s0','s1'},1);
+%% Scatter plot raw speed data for before and after attractant stimulation
+scatterChemotaxisData(mer,{'s0','s1'},1);  % This plot will have clickable data points, which will show you the corresponding rowlabels
 
-% Scatter plot normalized angular bias for two different experiments
+%% Scatter plot normalized angular bias for two different experiments
 scatterChemotaxisData(n,'a1',1,2);
